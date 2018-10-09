@@ -5,9 +5,9 @@ Repository contains accepted application for WWDC 2017 Schoolarship. It is a Xco
 
 
 # Basic info
-Swift 3.0
+Swift 4.0 (original version in Swift 3.0 available on branch [swift3](/../../tree/swift3))
 
-Xcode 9.0
+Xcode 10.0
 
 
 ## License
