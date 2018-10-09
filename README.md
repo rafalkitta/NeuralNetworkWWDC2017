@@ -14,4 +14,4 @@ Xcode 9.0
 
 Please note the LICENSE before making modifications to it.
 
-Copyright (c) 2018 Rafał kitta
+Copyright (c) 2018 Rafał Kitta
