@@ -123,7 +123,7 @@ open class NeuralNetworkControlView: UIView {
     /// Touch up inside event action of train again button
     ///
     /// - Parameter sender: Tapped button
-    func trainAgainButtonAction(sender: UIButton) -> Void {
+    @objc func trainAgainButtonAction(sender: UIButton) -> Void {
         trainAgainTouchUpInsideAction?()
     }
 }
