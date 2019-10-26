@@ -31,20 +31,29 @@ import PlaygroundSupport
  */
 let view = DefaultBackgroundView(frame: CGRect(x: 0.0, y: 0.0, width: 480.0, height: 600.0))
 let neuralNetworkVisualizationView = NeuralNetworkVisualisationView(frame: CGRect(x: 10.0, y: 10.0, width: 460.0, height: 500.0))
-let neuralNetworkControlView = NeuralNetworkControlView(frame: CGRect(x: neuralNetworkVisualizationView.frame.minX, y: neuralNetworkVisualizationView.frame.maxY, width: neuralNetworkVisualizationView.frame.width, height: 100.0))
+let controlViewFrame = CGRect(x: neuralNetworkVisualizationView.frame.minX,
+                              y: neuralNetworkVisualizationView.frame.maxY,
+                              width: neuralNetworkVisualizationView.frame.width,
+                              height: 100.0)
+let neuralNetworkControlView = NeuralNetworkControlView(frame: controlViewFrame)
 
 //: ## Configure Neural Network
 /*:
  In configuration of Neural Network are some modifications. Our `inputSize` will be `2` - sleeping and learning durations. `outputSize` will be `1` - exam score. Additionally we will create more hidden layers to show more complex Neural Network. There is no rules in matching number an sizes of hidden layers. Each case is unique. In our example, I decide to create 2 hidden layers with 5 and 4 neurons. You can change those values at your discretion.
  */
-let neuralNetworkInitParams = NeuralNetworkInitParameters(inputSize: 2, outputSize: 1, hiddenLayersSizes: [5, 4])
-let neuralNetwork = NeuralNetwork(with: neuralNetworkInitParams, visualizationView: neuralNetworkVisualizationView)
+let neuralNetworkInitParams = NeuralNetworkInitParameters(inputSize: 2,
+                                                          outputSize: 1,
+                                                          hiddenLayersSizes: [5, 4])
+let neuralNetwork = NeuralNetwork(with: neuralNetworkInitParams,
+                                  visualizationView: neuralNetworkVisualizationView)
 
 //: Neural Network Controller is exactly the same like in Basic Example.
-let neuralNetworkController = NeuralNetworkController(defaultBackgroundView: view, neuralNetworkControlView: neuralNetworkControlView, neuralNetwork: neuralNetwork, neuralNetworkVisualizationView: neuralNetworkVisualizationView)
+let neuralNetworkController = NeuralNetworkController(defaultBackgroundView: view,
+                                                      neuralNetworkControlView: neuralNetworkControlView,
+                                                      neuralNetwork: neuralNetwork,
+                                                      neuralNetworkVisualizationView: neuralNetworkVisualizationView)
 
 PlaygroundPage.current.liveView = view
-
 
 //: ## Initially train
 /*:
@@ -56,7 +65,6 @@ neuralNetworkController.trainNeuralNetwork(with: normalizedTrainingDataSet1, num
     neuralNetworkController.testNeuralNetwork(with: TrainingData(vectorIn: inputTestData, vectorOut: []))
 }
 
-
 neuralNetworkControlView.trainAgainTouchUpInsideAction = {
     neuralNetworkController.resetNeuralNetwork {
         neuralNetworkController.trainNeuralNetwork(with: normalizedTrainingDataSet1, numberOfTimes: trainingDataSetMutiplication) {
@@ -64,7 +72,6 @@ neuralNetworkControlView.trainAgainTouchUpInsideAction = {
         }
     }
 }
-
 
 /*:
 - Note:

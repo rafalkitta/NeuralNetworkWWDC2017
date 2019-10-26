@@ -67,14 +67,16 @@ let neuralNetworkInitParams = NeuralNetworkInitParameters(inputSize: 3, outputSi
  */
 let neuralNetwork = NeuralNetwork(with: neuralNetworkInitParams, visualizationView: neuralNetworkVisualizationView)
 
-
 //: ## Create Neural Network controller
 /*:
  To keep all above views and models, we will use `NeuralNetworkController`. It organises all views, helps in maintaining them, gives us simple API to communicate with Neural Network - train them and test them.
  
  Controller is also responsible for informing you about end of training process - "beep" sound 🔊.
  */
-let neuralNetworkController = NeuralNetworkController(defaultBackgroundView: view, neuralNetworkControlView: neuralNetworkControlView, neuralNetwork: neuralNetwork, neuralNetworkVisualizationView: neuralNetworkVisualizationView)
+let neuralNetworkController = NeuralNetworkController(defaultBackgroundView: view,
+                                                      neuralNetworkControlView: neuralNetworkControlView,
+                                                      neuralNetwork: neuralNetwork,
+                                                      neuralNetworkVisualizationView: neuralNetworkVisualizationView)
 
 //: ## Set live view
 /*:
